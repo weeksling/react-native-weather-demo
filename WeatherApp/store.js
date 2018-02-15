@@ -1,11 +1,13 @@
 import { createStore, combineReducers } from 'redux';
+import { WeatherReducer } from './src/Reducers';
+
 
 const reducer = {
 
 };
 
 const rootReducer = combineReducers ({
-
+    WeatherReducer
 })
 
 
