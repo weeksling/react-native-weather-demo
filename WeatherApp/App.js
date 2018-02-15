@@ -2,10 +2,14 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-import HomeScreen from './HomeScreen';
+import ListView from './ListView';
+import DetailView from './DetailView';
+import AddView from './AddView';
 
 const App = StackNavigator({
-  Home: { screen: HomeScreen }
+  Home: { screen: ListView },
+  Detail: { screen: DetailView },
+  Add : { screen: AddView },
 });
 
 export default App;
