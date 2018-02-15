@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import { Button} from 'react-native';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -27,6 +29,14 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>
           Weather App
         </Text>
+        <Button 
+          title="Go To Detail Screen"
+          onPress={ () => this.props.navigation.navigate('Detail') }
+          />
+        <Button 
+          title="Go To Add Screen"
+          onPress={ () => this.props.navigation.navigate('Add') }
+          />
       </View>
     );
   }
@@ -35,7 +45,7 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -43,10 +53,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
