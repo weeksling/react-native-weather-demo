@@ -14,7 +14,7 @@ import {
 
 import {
   WeatherList
- } from './components';
+ } from '../components';
 
 
 type Props = {};
