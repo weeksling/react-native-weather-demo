@@ -12,4 +12,4 @@ import {
     Add : { screen: AddView },
   });
   
-  export default App;
+  export default AppNavigation;
