@@ -6,20 +6,16 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
-import { Button} from 'react-native';
+import {
+  WeatherList
+ } from './components';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -29,14 +25,20 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>
           Weather App
         </Text>
-        <Button 
-          title="Go To Detail Screen"
-          onPress={ () => this.props.navigation.navigate('Detail') }
-          />
-        <Button 
-          title="Go To Add Screen"
-          onPress={ () => this.props.navigation.navigate('Add') }
-          />
+        <WeatherList 
+          style={styles.list} 
+          handleSelect={e => this.props.navigation.navigate('Detail')} 
+          listings={[ {
+            name: 'Oshawa', 
+            temperature:'10c', 
+            precipitation: 'raining'
+          },
+          {
+            name: 'Toronto',
+            temperature: '12c',
+            precipitation: 'snowing'
+          } ]} />
+        
       </View>
     );
   }
@@ -54,4 +56,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  list : {
+    width: '100%'
+  }
 });

@@ -1,15 +1,12 @@
-import {
-  StackNavigator,
-} from 'react-navigation';
+import React, {Component} from 'react';
 
-import ListView from './ListView';
-import DetailView from './DetailView';
-import AddView from './AddView';
+import AppNavigation from './src/Navigation';
 
-const App = StackNavigator({
-  Home: { screen: ListView },
-  Detail: { screen: DetailView },
-  Add : { screen: AddView },
-});
 
-export default App;
+export default class App extends Component {
+  render () {
+    return (
+      <AppNavigation />
+    )
+  }
+}
