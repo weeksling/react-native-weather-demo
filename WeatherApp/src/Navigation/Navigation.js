@@ -2,7 +2,7 @@ import {
     StackNavigator,
   } from 'react-navigation';
   
-  import ListView from './AddView';
+  import ListView from './ListView';
   import DetailView from './DetailView';
   import AddView from './AddView';
   
