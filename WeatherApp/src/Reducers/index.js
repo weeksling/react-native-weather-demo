@@ -1,8 +1,8 @@
 
 
 const DefaultState = {
-    locations: [],
-    weather  : [],
+    locations: [ { name: 'Toronto' } ],
+    weather  : [ { name: 'Toronto', precipitation: 'snow', temperature: '10c'} ],
     loading  : false,
     offline  : false
 }

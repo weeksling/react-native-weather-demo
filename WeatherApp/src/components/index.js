@@ -1,5 +1,9 @@
-import WeatherList from './WeatherList';
+import ListScreen from './ListScreen';
+import DetailScreen from './DetailScreen';
+import AddScreen from './AddScreen';
 
 export {
-    WeatherList
+    ListScreen,
+    DetailScreen,
+    AddScreen
 }

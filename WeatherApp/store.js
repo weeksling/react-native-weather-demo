@@ -7,7 +7,7 @@ const reducer = {
 };
 
 const rootReducer = combineReducers ({
-    WeatherReducer
+    weather: WeatherReducer
 })
 
 
