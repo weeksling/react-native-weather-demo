@@ -1,18 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import { WeatherReducer } from './src/Reducers';
-
-
-const reducer = {
-
-};
-
-const rootReducer = combineReducers ({
-    weather: WeatherReducer
-})
-
+import AppReducer from './src/Reducers';
 
 function configureStore() {
-    let store = createStore(rootReducer);
+    let store = createStore(AppReducer);
     return { store }
 }
 

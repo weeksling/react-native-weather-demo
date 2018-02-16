@@ -1,15 +1,14 @@
-import {
-    StackNavigator,
-} from 'react-navigation';
+import React, {Component} from 'react';
+import { connect } from "react-redux";
+import StackNavigator from './Navigator'
 
-import ListScreen from '../Containers/ListContainer';
-import DetailScreen from '../Containers/DetailContainer';
-import AddScreen from '../Containers/AddScreen';
+class AppNavigation extends Component {
+    render () {
+        return (
+            <StackNavigator
+                />
+        )
+    }
+}
 
-const AppNavigation = StackNavigator({
-    Home: { screen: ListScreen },
-    Detail: { screen: DetailScreen },
-    Add : { screen: AddScreen},
-});
-
-export default AppNavigation;
+export default AppNavigation

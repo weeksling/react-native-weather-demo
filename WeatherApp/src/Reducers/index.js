@@ -1,17 +1,9 @@
+import { combineReducers } from 'redux';
+import NavigationReducer from './NavigationReducer';
+import WeatherReducer from './WeatherReducer';
 
+const AppReducer = combineReducers ({
+    weather: WeatherReducer,
+});
 
-const DefaultState = {
-    locations: [ { name: 'Toronto' } ],
-    weather  : [ { name: 'Toronto', precipitation: 'snow', temperature: '10c'} ],
-    loading  : false,
-    offline  : false
-}
-
-const WeatherReducer = ( state = DefaultState, action ) => {
-    return state;
-}
-
-
-export {
-    WeatherReducer
-};
+export default AppReducer;
