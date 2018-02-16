@@ -42,6 +42,7 @@ export class WeatherList extends Component {
                     renderItem={
                         ({item}) => 
                             <WeatherListing 
+                                key={item.name}
                                 listing={item}
                                 handleSelect={this.props.handleSelect}
                                 />

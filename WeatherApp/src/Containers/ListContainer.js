@@ -9,13 +9,21 @@ import {
  } from '../components';
 
 import {
-  selectLocation
+  selectLocation,
+  updateAllWeatherData
 } from '../Actions'
 
 class ListContainer extends Component {
   handleSelect(location) {
     this.props.onSelectLocation(location);
     this.props.navigation.navigate("Detail");
+  }
+  componentDidMount() {
+    console.log('updating...')
+    this.props.updateWeatherData()
+  }
+  componentWillReceiveProps(prev, next) {
+    console.log({ prev, next })
   }
   render() {
     return <ListScreen {...this.props} handleSelect={this.handleSelect.bind(this)}/>
@@ -24,8 +32,10 @@ class ListContainer extends Component {
 
 const mapStateToProps = state => {
   console.log({state})
+  const { currentWeather } = state.weather;
+
   return {
-    weatherList : state.weather.weather
+    weatherList : Object.keys(currentWeather).map((k) => currentWeather[k])
   }
 }
 
@@ -33,6 +43,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onSelectLocation: location => {
       dispatch(selectLocation(location))
+    },
+    updateWeatherData: () => {
+      dispatch(updateAllWeatherData())
     }
   }
 }

@@ -1,10 +1,10 @@
 
 const DefaultState = {
-    locations: [ 'Toronto', 'Oshawa' ],
-    weather  : [ 
-        { name: 'Toronto', precipitation: 'snow', temperature: '10c'},
-        { name: 'Oshawa', precipitation: 'rain', temperature: '-12c'}
-    ],
+    locations: [ 'Toronto', 'Oshawa', 'Ottawa' ],
+    currentWeather  : { 
+        Toronto: { name: 'Toronto', precipitation: 'snow', temperature: '10c'},
+        Oshawa: { name: 'Oshawa', precipitation: 'rain', temperature: '-12c'}
+    },
     forecast: {
         Toronto: {
             tomorrow: '12',
@@ -25,6 +25,22 @@ const WeatherReducer = ( state = DefaultState, action ) => {
             return {
                 ...state,
                 selectedLocation: action.location
+            }
+        case 'SET_LOCATION_CURRENT_WEATHER':
+            return {
+                ...state,
+                currentWeather: {
+                    ...state.currentWeather,
+                    [action.location]:action.currentWeather
+                }
+            }
+        case 'SET_LOCATION_FORECAST':
+            return {
+                ...state,
+                forecast: {
+                    ...state.forecast,
+                    [action.location]:action.forecast
+                }
             }
         default:
             return state;
