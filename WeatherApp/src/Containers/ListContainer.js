@@ -8,8 +8,13 @@ import {
   ListScreen
  } from '../components';
 
+import {
+  selectLocation
+} from '../Actions'
+
 class ListContainer extends Component {
   handleSelect(location) {
+    this.props.onSelectLocation(location);
     this.props.navigation.navigate("Detail");
   }
   render() {
@@ -24,8 +29,17 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onSelectLocation: location => {
+      dispatch(selectLocation(location))
+    }
+  }
+}
+
 const connectListView = connect(
   mapStateToProps,
+  mapDispatchToProps
 ) (ListContainer);
 
 export default connectListView;

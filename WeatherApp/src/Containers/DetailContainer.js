@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = state => {
     return {
-
+        weather: state.weather
     }
 };
 

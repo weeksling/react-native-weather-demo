@@ -8,12 +8,19 @@ import {
 
 export default class DetailView extends Component {
   render() {
+    const { forecast, selectedLocation } = this.props.weather;
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Detail Screen
         </Text>
-        
+        <Text>
+          {selectedLocation}
+        </Text>
+        <Text>
+          {JSON.stringify(forecast[selectedLocation])}
+        </Text>
       </View>
     );
   }

@@ -10,21 +10,25 @@ import {
 } from 'react-native';
 
 export default class ListScreen extends Component {
-  render() {
-    console.log(this.props)
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Weather App
-        </Text>
-        <WeatherList 
-          style={styles.list} 
-          handleSelect={this.props.handleSelect} 
-          listings={this.props.weatherList} />
-        
-      </View>
-    );
-  }
+    selectLocation(e) {
+        console.log(e)
+        this.props.handleSelect(e)
+    }
+    render() {
+        console.log(this.props)
+        return (
+        <View style={styles.container}>
+            <Text style={styles.welcome}>
+            Weather App
+            </Text>
+            <WeatherList 
+            style={styles.list} 
+            handleSelect={this.selectLocation.bind(this)} 
+            listings={this.props.weatherList} />
+            
+        </View>
+        );
+    }
 }
 
 export class WeatherList extends Component {
@@ -58,7 +62,7 @@ export class WeatherListing extends Component {
         } = this.props.listing;
 
         return (
-            <TouchableHighlight onPress={this.props.handleSelect}>
+            <TouchableHighlight onPress={ e => this.props.handleSelect(name) }>
                 <View style= {styles.listing}
                         button
                         onPress={this.props.handleSelect}>
