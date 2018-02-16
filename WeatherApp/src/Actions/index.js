@@ -20,6 +20,7 @@ export function updateAllWeatherData() {
         .then ( results => {
             console.log('UPDATED ALL DATA')
         })
+        .catch(e=>console.error(e))
     }
 }
 
@@ -29,6 +30,7 @@ export function updateWeatherDataForLocation(location) {
             dispatch(updateCurrentWeather(location)),
             dispatch(updateWeatherForecast(location))
         ])
+        .catch(e=>console.error(e))
     }
 }
 
@@ -43,6 +45,7 @@ export function updateWeatherForecast(location) {
                     forecast: data
                 })
             })
+            .catch(e=>console.error(e))
     }
 }
 export function updateCurrentWeather(location) {
@@ -56,5 +59,6 @@ export function updateCurrentWeather(location) {
                     currentWeather: data
                 })
             })
+            .catch(e => console.error(e))
     }
 }

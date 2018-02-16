@@ -1,19 +1,8 @@
 
 const DefaultState = {
     locations: [ 'Toronto', 'Oshawa', 'Ottawa' ],
-    currentWeather  : { 
-        Toronto: { name: 'Toronto', precipitation: 'snow', temperature: '10c'},
-        Oshawa: { name: 'Oshawa', precipitation: 'rain', temperature: '-12c'}
-    },
-    forecast: {
-        Toronto: {
-            tomorrow: '12',
-            two_days: '-60'
-        },
-        Oshawa: {
-            tomorrow: '666'
-        }
-    },
+    currentWeather  : {},
+    forecast: {},
     selectedLocation: 'Toronto',
     loading  : false,
     offline  : false
