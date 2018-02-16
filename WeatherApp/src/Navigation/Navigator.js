@@ -4,7 +4,7 @@ import {
 
 import ListScreen from '../Containers/ListContainer';
 import DetailScreen from '../Containers/DetailContainer';
-import AddScreen from '../Containers/AddScreen';
+import AddScreen from '../Containers/AddContainer';
 
 const AppNavigation = StackNavigator({
     Home: { screen: ListScreen },

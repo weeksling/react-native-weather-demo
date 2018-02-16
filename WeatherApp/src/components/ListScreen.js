@@ -6,6 +6,7 @@ import {
     Text,
     FlatList,
     StyleSheet,
+    Button,
     TouchableHighlight
 } from 'react-native';
 
@@ -13,6 +14,10 @@ export default class ListScreen extends Component {
     selectLocation(e) {
         console.log(e)
         this.props.handleSelect(e)
+    }
+    addLocation(e) {
+        console.log(e)
+        this.props.handleAdd(e)
     }
     render() {
         console.log(this.props)
@@ -25,7 +30,11 @@ export default class ListScreen extends Component {
             style={styles.list} 
             handleSelect={this.selectLocation.bind(this)} 
             listings={this.props.weatherList} />
-            
+            <Button 
+                onPress={this.addLocation.bind(this)}
+                title="Add New Location"
+                color="#841584"
+            />
         </View>
         );
     }

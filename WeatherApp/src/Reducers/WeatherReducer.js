@@ -15,6 +15,11 @@ const WeatherReducer = ( state = DefaultState, action ) => {
                 ...state,
                 selectedLocation: action.location
             }
+        case 'ADD_LOCATION':
+            return {
+                ...state,
+                locations: [...state.locations, action.name]
+            }
         case 'SET_LOCATION_CURRENT_WEATHER':
             return {
                 ...state,

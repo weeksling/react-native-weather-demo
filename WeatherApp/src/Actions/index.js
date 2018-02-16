@@ -10,6 +10,19 @@ export function selectLocation (location) {
     }
 }
 
+export function addLocation (name) {
+    return dispatch => {
+        dispatch({
+            type: 'ADD_LOCATION',
+            name
+        })
+        return Promise.resolve().then(() => {
+            dispatch(updateAllWeatherData());
+        })
+        
+    }
+}
+
 export function updateAllWeatherData() {
     return (dispatch, getState) => {
 
@@ -20,7 +33,7 @@ export function updateAllWeatherData() {
         .then ( results => {
             console.log('UPDATED ALL DATA')
         })
-        .catch(e=>console.error(e))
+        .catch(e=>console.info(e))
     }
 }
 
@@ -30,7 +43,7 @@ export function updateWeatherDataForLocation(location) {
             dispatch(updateCurrentWeather(location)),
             dispatch(updateWeatherForecast(location))
         ])
-        .catch(e=>console.error(e))
+        .catch(e=>console.info(e))
     }
 }
 
@@ -45,7 +58,7 @@ export function updateWeatherForecast(location) {
                     forecast: data
                 })
             })
-            .catch(e=>console.error(e))
+            .catch(e=>console.info(e))
     }
 }
 export function updateCurrentWeather(location) {
@@ -59,6 +72,6 @@ export function updateCurrentWeather(location) {
                     currentWeather: data
                 })
             })
-            .catch(e => console.error(e))
+            .catch(e => console.info(e))
     }
 }

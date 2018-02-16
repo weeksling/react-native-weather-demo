@@ -18,6 +18,9 @@ class ListContainer extends Component {
     this.props.onSelectLocation(location);
     this.props.navigation.navigate("Detail");
   }
+  handleAdd() {
+    this.props.navigation.navigate("Add");
+  }
   componentDidMount() {
     console.log('updating...')
     this.props.updateWeatherData()
@@ -26,7 +29,7 @@ class ListContainer extends Component {
     console.log({ prev, next })
   }
   render() {
-    return <ListScreen {...this.props} handleSelect={this.handleSelect.bind(this)}/>
+    return <ListScreen {...this.props} handleSelect={this.handleSelect.bind(this)} handleAdd={this.handleAdd.bind(this)}/>
   }
 }
 

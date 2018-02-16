@@ -3,16 +3,31 @@ import React, { Component } from 'react';
 import {   
     View,
     StyleSheet,
-    Text
+    Text,
+    TextInput,
+    Button
 } from 'react-native';
 
 export default class AddView extends Component {
+  addLocation(){
+    this.props.handleAdd(this.state.name)
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Add Screen
         </Text>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type Location Name"
+          onChangeText={(name) => this.setState({name})}
+        />
+        <Button
+          onPress={this.addLocation.bind(this)}
+          title="Add New Location"
+          color="#841584"
+        />
       </View>
     );
   }
