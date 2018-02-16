@@ -8,6 +8,15 @@ import {
   ListScreen
  } from '../components';
 
+class ListContainer extends Component {
+  handleSelect(location) {
+    this.props.navigation.navigate("Detail");
+  }
+  render() {
+    return <ListScreen {...this.props} handleSelect={this.handleSelect.bind(this)}/>
+  }
+}
+
 const mapStateToProps = state => {
   console.log({state})
   return {
@@ -16,7 +25,7 @@ const mapStateToProps = state => {
 }
 
 const connectListView = connect(
-  mapStateToProps
-) (ListScreen);
+  mapStateToProps,
+) (ListContainer);
 
 export default connectListView;
