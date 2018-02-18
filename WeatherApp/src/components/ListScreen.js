@@ -11,11 +11,11 @@ import {
 } from 'react-native';
 
 export default class ListScreen extends Component {
-    selectLocation(e) {
+    _selectLocation(e) {
         console.log(e)
         this.props.handleSelect(e)
     }
-    addLocation(e) {
+    _addLocation(e) {
         console.log(e)
         this.props.handleAdd(e)
     }
@@ -28,10 +28,10 @@ export default class ListScreen extends Component {
             </Text>
             <WeatherList 
             style={styles.list} 
-            handleSelect={this.selectLocation.bind(this)} 
+            handleSelect={this._selectLocation.bind(this)} 
             listings={this.props.weatherList} />
             <Button 
-                onPress={this.addLocation.bind(this)}
+                onPress={this._addLocation.bind(this)}
                 title="Add New Location"
                 color="#841584"
             />

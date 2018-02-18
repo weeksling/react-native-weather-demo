@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 export default class AddView extends Component {
-  addLocation(){
+  _addLocation(){
     this.props.handleAdd(this.state.name)
   }
   render() {
@@ -24,7 +24,7 @@ export default class AddView extends Component {
           onChangeText={(name) => this.setState({name})}
         />
         <Button
-          onPress={this.addLocation.bind(this)}
+          onPress={this._addLocation.bind(this)}
           title="Add New Location"
           color="#841584"
         />
